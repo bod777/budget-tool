@@ -1,2 +1,2 @@
 release: alembic upgrade head
-web: gunicorn app.main:app -k uvicorn.workers.UvicornWorker --timeout 60 --workers 2
+web: gunicorn app.main:app -k uvicorn.workers.UvicornWorker -b 0.0.0.0:$PORT --workers 2 --timeout 60
