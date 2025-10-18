@@ -73,3 +73,6 @@ wcwidth==0.2.14
 webencodings==0.5.1
 websockets==15.0.1
 yarg==0.1.9
+python-jose[cryptography]
+passlib[bcrypt]
+SQLAlchemy[asyncio]
