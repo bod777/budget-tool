@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .config import settings
-from .db import engine
+
 from . import models
+from .config import settings
+from .routers.auth import router as auth_router
 
 app = FastAPI(title="Budget API")
 
@@ -18,6 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
     allow_credentials=False,
 )
+
+app.include_router(auth_router, prefix="/auth", tags=["auth"])
 
 @app.get("/healthz")
 async def health():
