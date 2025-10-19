@@ -196,7 +196,12 @@ function App() {
               <img
                 src={user.picture}
                 alt={user.name ?? user.email}
+                referrerPolicy="no-referrer"
                 style={{ width: 48, height: 48, borderRadius: '50%' }}
+                onError={(event) => {
+                  event.currentTarget.onerror = null
+                  event.currentTarget.src = 'https://www.gravatar.com/avatar/?d=mp'
+                }}
               />
             )}
             <div>
